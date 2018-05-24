@@ -39,7 +39,6 @@ public class ChatMeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_chat_me, container, false);
         TextView tvMessage = view.findViewById(R.id.tvMessageMe);
         tvMessage.setText(message);
-        tvMessage.setTextSize(ChatHistoryActivity.fontSize);
         return view;
     }
 }
