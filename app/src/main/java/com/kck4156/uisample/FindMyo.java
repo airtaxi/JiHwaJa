@@ -6,8 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.kck4156.uisample.com.kck4156.uisample.viewdata.RVListMyo;
-import com.kck4156.uisample.com.kck4156.uisample.viewdata.RVListMyoAdapter;
+import com.kck4156.uisample.viewdata.RVListMyo;
+import com.kck4156.uisample.viewdata.RVListMyoAdapter;
 
 import java.util.ArrayList;
 

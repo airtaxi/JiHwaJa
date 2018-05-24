@@ -19,7 +19,7 @@ public class Settings extends AppCompatActivity {
         tvFontSize = findViewById(R.id.textView7);
         tvFontPreview = findViewById(R.id.textView10);
         SharedPreferences pref = getSharedPreferences("settings", MODE_PRIVATE);
-        fontSize = pref.getInt("fontSize", 24);
+        fontSize = pref.getInt("fontSize", 16);
         tvFontSize.setText(String.valueOf(fontSize));
         tvFontPreview.setTextSize((float) fontSize);
     }

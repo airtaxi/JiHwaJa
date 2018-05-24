@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".FindMyo" />
         <activity android:name=".MyoPrint" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".Settings" />
+        <activity android:name=".ChatHistoryActivity" />
+        <activity android:name=".ChatListActivity"></activity>
     </application>
 
 </manifest>

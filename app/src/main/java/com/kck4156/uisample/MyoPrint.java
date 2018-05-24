@@ -64,4 +64,9 @@ public class MyoPrint extends AppCompatActivity {
         Intent intent = new Intent(this, Settings.class);
         startActivity(intent);
     }
+
+    public void onHistoryClick(View view) {
+        Intent intent = new Intent(this, ChatListActivity.class);
+        startActivity(intent);
+    }
 }
