@@ -1,5 +1,6 @@
 package com.kck4156.uisample;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import java.util.Random;
 
 public class ChatListActivity extends AppCompatActivity {
 
+    @SuppressLint("StaticFieldLeak")
     public static RecyclerView recyclerView;
     private ArrayList<RVListHistory> mItems;
     private RVListHistoryAdapter adapter;
@@ -28,7 +30,7 @@ public class ChatListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_list);
         recyclerView = findViewById(R.id.list);
-        mItems = new ArrayList<RVListHistory>();
+        mItems = new ArrayList<>();
         adapter = new RVListHistoryAdapter(mItems);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -36,7 +38,9 @@ public class ChatListActivity extends AppCompatActivity {
         Random rand = new Random();
         for (int i = 0; i < 30; i++) {
             List<ChatLog> logs = new ArrayList<>();
-            for (int j = 0; j < 30; j++) {
+            int min = (int) (rand.nextFloat()*15.0f);
+            int max = 15 + (int) (rand.nextFloat()*15.0f);
+            for (int j = 0; j < max-min; j++) {
                 float var = rand.nextFloat() * 2.0f;
                 StringBuilder builder = new StringBuilder();
                 String baseStr = "소불고기 먹고싶다. ";
