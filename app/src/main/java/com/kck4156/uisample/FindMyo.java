@@ -1,21 +1,37 @@
 package com.kck4156.uisample;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.kck4156.uisample.viewdata.RVListMyo;
 import com.kck4156.uisample.viewdata.RVListMyoAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class FindMyo extends AppCompatActivity {
+import eu.darken.myolib.BaseMyo;
+import eu.darken.myolib.Myo;
+import eu.darken.myolib.MyoConnector;
+import eu.darken.myolib.msgs.MyoMsg;
+
+public class FindMyo extends AppCompatActivity{
+
+    public static Myo mMyo;
+    public static Activity mActivity;
 
     public static RecyclerView recyclerView;
     private ArrayList<RVListMyo> mItems;
     private RVListMyoAdapter adapter;
+    private boolean isScanable = true;
+    private MyoConnector mMyoConnector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +43,47 @@ public class FindMyo extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        mItems.add(new RVListMyo("<Place any dummy MYO name here>(0)", "<Place any dummy MYO UDID here>"));
-
-        adapter.notifyDataSetChanged();
+        mMyoConnector = new MyoConnector(this);
+        mMyoConnector.scan(mScannerCallback, 1000);
+        mActivity = this;
     }
 
-    public void onScanButtonClick(View view) {
-        mItems.add(new RVListMyo("<Place any dummy MYO name here>("+String.valueOf(mItems.size())+")","<Place any dummy MYO UDID here>"));
-        adapter.notifyDataSetChanged();
+    private MyoConnector.ScannerCallback mScannerCallback = new MyoConnector.ScannerCallback() {
+        @Override
+        public void onScanFinished(final List<Myo> myos) {
+            if(isScanable) {
+                mItems.clear();
+                Log.d(MainActivity.TAG, "MYOS:"+myos.size());
+                for(Myo myo : myos) {
+                    final RVListMyo node = new RVListMyo("Myo", myo.getDeviceAddress(), myo);
+                    mItems.add(node);
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                mMyoConnector.scan(mScannerCallback, 1000);
+            }
+        }
+    };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        isScanable = false;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isScanable = true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        isScanable = false;
     }
 }

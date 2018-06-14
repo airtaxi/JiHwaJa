@@ -1,1 +1,2 @@
-include ':app'
+include ':app', ':myo'
+project(':myo').projectDir = new File('myolib')

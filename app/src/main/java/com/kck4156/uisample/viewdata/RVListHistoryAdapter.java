@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.kck4156.uisample.ChatHistoryActivity;
 import com.kck4156.uisample.ChatListActivity;
-import com.kck4156.uisample.FindMyo;
 import com.kck4156.uisample.R;
 
 import java.util.ArrayList;

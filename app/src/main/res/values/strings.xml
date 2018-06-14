@@ -4,4 +4,32 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_chat_list">ChatListActivity</string>
+    <string name="translate_main">지화 번역</string>
+    <string name="translate_input">지화 입력</string>
+    <string name="translate_current">현재 입력 :</string>
+    <string name="translate_input_alt">입력 추가 버튼을 눌러 메세지를 작성하세요</string>
+    <string name="translate_add_now">현재 입력 추가</string>
+    <string name="translate_talk">대화하기</string>
+    <string name="translate_push">음성 녹음 버튼을 누르는 동안 입력</string>
+    <string name="translate_send">전송</string>
+    <string name="translate_send_voice">SEND VOICE</string>
+    <string name="main_title">메인 메뉴</string>
+    <string name="main_translate">번역 시작</string>
+    <string name="main_desc_settings">Settings</string>
+    <string name="main_desc_image">Main Image</string>
+    <string name="main_settings">설정</string>
+    <string name="main_history">대화 기록 확인하기</string>
+    <string name="history_check">기록 확인</string>
+    <string name="list_history">채팅 기록</string>
+    <string name="find_choose_myo">Myo를 찾는중....</string>
+    <string name="find_scan">스캔하기</string>
+    <string name="malt_title">MYO 연결 설정</string>
+    <string name="malt_desc_bt">Bluetooth</string>
+    <string name="malt_connect">MYO 연결하기</string>
+    <string name="malt_gotomain">메인 메뉴로 이동하기</string>
+    <string name="settings_title">설정</string>
+    <string name="chat_desc_bubble">bubble</string>
+    <string name="list_desc_logo">logo</string>
+    <string name="gmanage_title">제스쳐 관리</string>
+    <string name="gmanage_add">제스쳐 추가</string>
 </resources>

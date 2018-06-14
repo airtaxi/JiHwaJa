@@ -7,7 +7,7 @@ public class ChatLog {
         this.message = message;
         this.isMine = isMine;
     }
-
+    public ChatLog() {}
     public String getMessage() {
         return message;
     }

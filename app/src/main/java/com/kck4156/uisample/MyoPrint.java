@@ -1,12 +1,8 @@
 package com.kck4156.uisample;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,7 +15,7 @@ public class MyoPrint extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_myo_print);
+        setContentView(R.layout.activity_main_alternative);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
     }
 
@@ -53,11 +49,8 @@ public class MyoPrint extends AppCompatActivity {
 //    }
 
     public void onTranslateBtnClick(View view) {
-        Toast.makeText(this,"지화 번역 클릭됨", Toast.LENGTH_SHORT).show();
-    }
-
-    public void onSpeechRecognizationClick(View view) {
-        Toast.makeText(this,"음성 인식 클릭됨", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, TranslateActivity.class);
+        startActivity(intent);
     }
 
     public void onSettingsClick(View view) {
@@ -67,6 +60,11 @@ public class MyoPrint extends AppCompatActivity {
 
     public void onHistoryClick(View view) {
         Intent intent = new Intent(this, ChatListActivity.class);
+        startActivity(intent);
+    }
+
+    public void onGestureClick(View view) {
+        Intent intent = new Intent(this, GestureManageActivity.class);
         startActivity(intent);
     }
 }

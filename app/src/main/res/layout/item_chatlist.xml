@@ -1,7 +1,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -10,7 +9,8 @@
         android:id="@+id/cardView"
         android:clickable="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:focusable="true">
 
         <android.support.constraint.ConstraintLayout
             android:layout_margin="8dp"
@@ -28,7 +28,8 @@
                 android:src="@drawable/bubble"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@string/chat_desc_bubble" />
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -37,8 +38,7 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="8dp"
-                android:text="2018년 5월 25일의 대화내용"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/ivBubble"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -49,8 +49,7 @@
                 android:layout_height="16dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
-                android:text="30개의 대화가 있습니다."
-                android:textSize="14dp"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/ivBubble"
                 app:layout_constraintStart_toEndOf="@+id/ivBubble" />
         </android.support.constraint.ConstraintLayout>
